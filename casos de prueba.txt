@@ -1,0 +1,54 @@
+% casos de prueba ejercicio 5 
+
+?- device_config(old_ega_monitor, Irq, IO_address).
+?- device_config(mitsumi_ide_16_cdrom, Irq, IO_address).
+?- device_config(new_ega_monitor, Irq, IO_address).
+
+%casos de prueba ejercicio 6 
+
+?- free_initial_irq_list(L).
+
+%casos de prueba ejercicio 7 
+
+?- free_initial_io_address_list(L).
+
+%casos de prueba ejercicio 8
+
+?- interval_is_included([2,4], [1,5]).
+
+?- interval_is_included([2,6], [1,7]).
+
+?- interval_is_included([1,30], [1,100]).
+
+
+%casos de prueba ejercicio 9
+
+ ?- remove_interval([1,6], [1,12], Resultado).
+
+ ?- remove_interval([4,5], [2,10], Resultado).
+ 
+ ?- remove_interval([3,3], [1,3], Resultado).
+
+%caso de prueba ejercicio 10 
+
+?- free_initial_irq_list(Old_irq),
+    free_initial_io_address_list(Old_io),
+    configure_one_device(sound_blaster_16, Old_irq, Old_io,
+    New_irq, New_io,C).
+
+
+?- Old_irq = [13], free_initial_io_address_list(Old_io),
+configure_one_device(math_coprocessor, Old_irq, Old_io,
+New_irq, New_io,C).
+
+
+?-  Old_irq = [10], free_initial_io_address_list(Old_io),
+configure_one_device(sound_blaster_16, Old_irq, Old_io,
+New_irq, New_io,C).
+
+% caso de prueba ejercicio 11 
+
+?-configure_devices([math_coprocessor, hard_disk_c, hard_disk_d, ecp_printer1, old_ega_monitor], CL).
+
+?-configure_devices([hard_disk_c, ecp_printer1, old_ega_monitor], CL).
+
